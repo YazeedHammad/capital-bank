@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Edit Account Info</h1>
+  <div>
+    <form [formGroup]="infoForm" (ngSubmit)="onSubmit()">
+      <div class="edit-input form-group">
+        <input type="text" placeholder="Account Number" class="form-control" formControlName="accNumber">
+      </div>
+      <div class="edit-input form-group">
+        <input type="text" placeholder="Account Nickname" class="form-control" formControlName="nickName">
+      </div>
+      <div class="edit-input form-group">
+        <input type="text" placeholder="Account Balance" class="form-control" formControlName="accBalance">
+      </div>
+      <div class="edit-input form-group">
+        <input type="text" placeholder="Balance Currency" class="form-control" formControlName="balanceCurrency">
+      </div>
+      <div class="edit-submit">
+        <button type="submit" class="save-form">Save</button>
+        <button type="cancel" class="cancel-form">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

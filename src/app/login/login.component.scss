@@ -1,0 +1,74 @@
+$borderColor: rgb(184, 169, 172);
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: url('https://www.agdelta.com/wp-content/uploads/2018/06/website-parallax-background-C.jpg');
+    background-size: cover;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+
+    font: {
+        family: 'Courier New', Courier, monospace;
+        size: 25px;
+        weight: bold;
+    }
+}
+
+.logo-img {
+    width: 150px;
+    height: 150px;
+    padding-bottom: 1%;
+    opacity: 0.7;
+}
+
+.logo {
+    padding-top: 5%;
+}
+
+.login {
+    font-size: 3em;
+    color: rgba(240, 8, 85, 0.8)
+}
+
+.log-form {
+    padding-top: 3%;
+}
+
+@mixin form-controls {
+    width: 50%;
+    margin: 8px 50px;
+    border-radius: 10px;
+}
+
+.form-input {
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: solid 5px $borderColor;
+    background: rgba(255, 255, 255, 0.7);
+
+    font: {
+        size: 20px;
+    }
+
+    @include form-controls()
+}
+
+.submit-form {
+    background: rgba(157, 245, 226, 0.7);
+    border: solid 2px $borderColor;
+
+    font: {
+        size: 30px;
+        weight: bold;
+    }
+
+    @include form-controls()
+}
+
+.has-error input[type="text"],
+.has-error input[type="password"] {
+    border-color: rgb(216, 12, 12);
+    color: rgb(230, 14, 14);
+}

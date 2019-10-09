@@ -1,0 +1,21 @@
+.edit {
+    margin: 0 15%;
+    width: 70%;
+    height: 30%;
+    margin-right: 30%;
+    border: solid 5px pink;
+    text-align: center;
+}
+
+.new {
+    width: 20%;
+    margin: 8px 50px;
+    border-radius: 10px;
+    background: green;
+    border: solid 2px rgb(184, 169, 172);
+
+    font: {
+        size: 30px;
+        weight: bold;
+    }
+}

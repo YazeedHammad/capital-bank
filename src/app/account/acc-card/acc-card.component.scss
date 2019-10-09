@@ -1,0 +1,42 @@
+.cardcontainer {
+    display: inline-block;
+    position: relative;
+    width: 400px;
+    height: 500px;
+    margin: 10% 5%;
+}
+
+.cards {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+
+    &:hover {
+        transform: rotateY(180deg)
+    }
+}
+
+@mixin card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 1px solid #BFBFBF;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+.front-card {
+    @include card-face();
+    background: rgb(214, 216, 216);
+    color: black;
+    text-align: center;
+}
+
+.back-card {
+    @include card-face();
+    background: rgb(77, 78, 78);
+    color: rgb(70, 5, 5);
+    transform: rotateY(180deg)
+}
