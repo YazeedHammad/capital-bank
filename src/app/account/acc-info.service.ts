@@ -9,12 +9,13 @@ import { Subject } from 'rxjs';
 export class AccInfoService {
 
   InfoChanged = new Subject<AccInfo[]>();
+  formType = ''
 
 
   accInfo: AccInfo[] = [
-    new AccInfo(1, 123, 'Yazeed', 186.475, '$'),
-    new AccInfo(2, 123, 'Saif', 186.475, '$'),
-    new AccInfo(2, 123, 'Saif', 186.475, '$'),
+    new AccInfo(1, 2060860, 'Yazeed', 186.91, '$'),
+    new AccInfo(2, 2045698, 'Saif', 45.89, '$'),
+    new AccInfo(3, 2063254, 'Saleh', 554.32, 'JOD'),
   ]
 
   constructor() { }

@@ -36,11 +36,6 @@ export class AccListComponent implements OnInit {
     this.accInfo = this.accInfoService.getInfos()
   }
 
-  // onEditInfo() {
-  //   this.editMode = true;
-  //   this.router.navigate(['edit'], { relativeTo: this.route })
-  // }
-
   onNewAccount() {
     this.editMode = true;
     this.router.navigate(['new'], { relativeTo: this.route });

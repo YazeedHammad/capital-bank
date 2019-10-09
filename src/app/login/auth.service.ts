@@ -6,6 +6,11 @@ import { User } from './user.model';
 })
 export class AuthService {
 
+  //  users: User[] = [
+  //   new User('Yazeed', 'Y@zeed@123'),
+  //   new User('Saif', 'S@if@123')
+  // ]
+
   constructor() { }
 
   public login(userInfo: User) {

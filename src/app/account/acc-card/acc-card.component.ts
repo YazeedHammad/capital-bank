@@ -23,8 +23,6 @@ export class AccCardComponent implements OnInit {
     private accList: AccListComponent) { }
 
   ngOnInit() {
-    this.accInfo = this.accInfoService.getInfos()
-
   }
 
   onEditInfo() {

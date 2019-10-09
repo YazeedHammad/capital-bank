@@ -1,15 +1,23 @@
-<div class="cardcontainer" *ngFor="let info of accInfo">
+<div class="cardcontainer">
   <div class="cards" style="cursor: pointer;" [routerLink]="[index]" routerLinkActive="active">
     <div class="front-card">
-      <div>{{info.id}}</div>
-      <div>{{ info.accNumber}}</div>
-      <div class="acc-name">{{ info.nickName }}</div>
+      <div class="frontcard-img">
+      </div>
+      <div class="acc-front">
+        <div class="acc-front-div">id: {{index+1}}</div>
+        <div class="acc-front-div">Account Number: {{ accInfo.accNumber}}</div>
+        <div class="acc-front-div">Nickname: {{ accInfo.nickName }}</div>
+      </div>
     </div>
 
     <div class="back-card">
-      <label for="">{{info.accBalance}}</label>
-      <button (click)="onEditInfo()">Edit</button>
-      <button>Delete</button>
+      <div class="backcard-img"></div>
+      <div class="acc-back">
+        <div class="acc-back-div">Account Balance: {{accInfo.accBalance}} {{accInfo.balanceCurrency}}</div>
+      </div>
+      <div><button (click)="onEditInfo()" class="edit-acc">Edit</button></div>
+
+      <div><button class="delete-acc">Delete</button></div>
     </div>
   </div>
 </div>

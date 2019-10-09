@@ -8,17 +8,18 @@ $borderColor: rgb(184, 169, 172);
     box-sizing: border-box;
     border: solid 5px rgb(184, 169, 172);
     background: $borderColor;
+    color: black;
 
     font: {
         size: 20px;
     }
 }
 
-.save-form {
+@mixin form-btn($backgroundColor) {
     width: 20%;
     margin: 8px 50px;
     border-radius: 10px;
-    background: green;
+    background: $backgroundColor;
     border: solid 2px $borderColor;
 
     font: {
@@ -27,15 +28,17 @@ $borderColor: rgb(184, 169, 172);
     }
 }
 
-.cancel-form {
-    width: 20%;
-    margin: 8px 50px;
-    border-radius: 10px;
-    background: red;
-    border: solid 2px $borderColor;
+.save-form {
+    @include form-btn(green)
+}
 
-    font: {
-        size: 30px;
-        weight: bold;
-    }
+.cancel-form {
+    @include form-btn(red)
+}
+
+.has-error input[type="text"],
+.has-error input[type="password"] {
+    border-color: rgb(216, 12, 12);
+    color: rgb(230, 14, 14);
+    font-family: 'Courier New', Courier, monospace;
 }

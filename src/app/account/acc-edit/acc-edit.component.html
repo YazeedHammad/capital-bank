@@ -1,22 +1,47 @@
 <div class="container">
-  <h1>Edit Account Info</h1>
+  <h1>{{ editMode ? 'Update' : 'Add' }} Account</h1>
   <div>
     <form [formGroup]="infoForm" (ngSubmit)="onSubmit()">
+
       <div class="edit-input form-group">
-        <input type="text" placeholder="Account Number" class="form-control" formControlName="accNumber">
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.accNumber.errors }">
+          <input type="text" placeholder="Account Number" class="form-control" formControlName="accNumber">
+        </p>
       </div>
-      <div class="edit-input form-group">
-        <input type="text" placeholder="Account Nickname" class="form-control" formControlName="nickName">
+      <div *ngIf="isSubmitted && formControls.accNumber.errors" class="help-block">
+        <div *ngIf="formControls.accNumber.errors.required">Account Number is required</div>
       </div>
+
       <div class="edit-input form-group">
-        <input type="text" placeholder="Account Balance" class="form-control" formControlName="accBalance">
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.nickName.errors }">
+          <input type="text" placeholder="Account Nickname" class="form-control" formControlName="nickName">
+        </p>
       </div>
+      <div *ngIf="isSubmitted && formControls.nickName.errors" class="help-block">
+        <div *ngIf="formControls.nickName.errors.required">Nickname is required</div>
+      </div>
+
       <div class="edit-input form-group">
-        <input type="text" placeholder="Balance Currency" class="form-control" formControlName="balanceCurrency">
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.accBalance.errors }">
+          <input type="text" placeholder="Account Balance" class="form-control" formControlName="accBalance">
+        </p>
+      </div>
+      <div *ngIf="isSubmitted && formControls.accBalance.errors" class="help-block">
+        <div *ngIf="formControls.accBalance.errors.required">Account Balance is required</div>
+      </div>
+
+      <div class="edit-input form-group">
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.balanceCurrency.errors }">
+          <input type="text" placeholder="Balance Currency" class="form-control" formControlName="balanceCurrency">
+        </p>
+      </div>
+
+      <div *ngIf="isSubmitted && formControls.balanceCurrency.errors" class="help-block">
+        <div *ngIf="formControls.balanceCurrency.errors.required">Balance Currency is required</div>
       </div>
       <div class="edit-submit">
         <button type="submit" class="save-form">Save</button>
-        <button type="cancel" class="cancel-form">Cancel</button>
+        <button type="button" class="cancel-form" (click)="onCancel()">Cancel</button>
       </div>
     </form>
   </div>

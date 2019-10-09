@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AccListComponent } from '../acc-list/acc-list.component';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AccInfoService } from '../acc-info.service'
@@ -12,14 +12,22 @@ import { AccInfoService } from '../acc-info.service'
 export class AccEditComponent implements OnInit {
   id: number;
   infoForm: FormGroup;
-  editMode = false;
+  editMode = true;
+  isSubmitted = false;
 
   constructor(private accList: AccListComponent,
     private route: ActivatedRoute,
     private router: Router,
-    private accInfoService: AccInfoService) { }
+    private accInfoService: AccInfoService,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+
+    this.infoForm = this.formBuilder.group({
+      accNumber: ['', Validators.required],
+      nickName: ['', Validators.required]
+    });
+
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -30,20 +38,29 @@ export class AccEditComponent implements OnInit {
       )
   }
 
+  get formControls() {
+    return this.infoForm.controls;
+  };
+
   onSubmit() {
+    this.isSubmitted = true;
+    localStorage.setItem('updatedInfo', JSON.stringify(this.infoForm.value))
+    if (this.infoForm.invalid) {
+      return;
+    }
     if (this.editMode) {
       this.accInfoService.updateInfo(this.id, this.infoForm.value)
     } else {
       this.accInfoService.addAccount(this.infoForm.value)
     }
-    console.log(this.infoForm);
+    console.log(this.infoForm.value);
 
-    localStorage.setItem('updatedInfo', JSON.stringify(this.infoForm.value))
 
   }
 
   onCancel() {
-    this.router.navigate(['../'], { relativeTo: this.route });
+    this.editMode = false
+    this.router.navigate(['./'], { relativeTo: this.route });
   }
 
   private initForm() {
