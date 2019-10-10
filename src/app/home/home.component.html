@@ -1,7 +1,29 @@
 <app-nav></app-nav>
+
+
 <div class="container">
     <div class="carousel">
+        <carousel>
+            <slide>
+                <img src="http://wowslider.com/sliders/demo-42/data1/images/lighthouse.jpg" alt="first slide"
+                    style="display: block; width: 100%;">
+            </slide>
+            <slide>
+                <img src="http://wowslider.com/sliders/demo-37/data1/images/waterandmountains.jpg" alt="second slide"
+                    style="display: block; width: 100%;">
+            </slide>
+            <slide>
+                <img src="http://wowslider.com/sliders/demo-37/data1/images/jungle.jpg" alt="third slide"
+                    style="display: block; width: 100%;">
+            </slide>
 
+            <!-- <slide>
+                <video controls autoplay>
+                    <source src="./carousel.mp4" type="video/mp4" style="display: block; width: 100%;">
+                    Your browser does not support the video tag.
+                </video>
+            </slide> -->
+        </carousel>
     </div>
     <div class="paragraph">
         <p class="img-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus optio impedit quam
@@ -11,9 +33,8 @@
     </div>
 
 
-    <div class="weather">
-        <div>{{city}}</div>
-        <div>{{weather}}</div>
-        <div>{{temp}}</div>
+    <div>
+        <app-weather></app-weather>
     </div>
+
 </div>

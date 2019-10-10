@@ -11,7 +11,12 @@ import { AccNewComponent } from './account/acc-new/acc-new.component';
 import { AccCardComponent } from './account/acc-card/acc-card.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+// import { HttpClientModule } from '@angular/common/http';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { WeatherComponent } from './home/weather/weather.component';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+
+
 
 
 @NgModule({
@@ -23,15 +28,17 @@ import { HttpClientModule } from '@angular/common/http';
     AccEditComponent,
     AccNewComponent,
     AccCardComponent,
-    NavComponent
+    NavComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    CarouselModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    HttpClientJsonpModule
 
   ],
   providers: [],

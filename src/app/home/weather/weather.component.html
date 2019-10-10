@@ -1,0 +1,18 @@
+<div class="weather">
+  <p *ngIf="weather.length == 0">Searching...</p>
+  <div *ngIf="weather.length > 0">
+    <table class="weather-table">
+      <thead></thead>
+      <tbody>
+        <tr>
+          <td *ngFor="let forecast of weather">
+            <h5 *ngFor="let day of days">{{day}}</h5>
+            <img [src]="forecast.iconLink" />
+            <p>{{ forecast.highTemperature }}C</p>
+            <p class="p-Time">{{ forecast.utcTime }}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
