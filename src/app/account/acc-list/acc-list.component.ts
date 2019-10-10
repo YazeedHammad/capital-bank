@@ -20,7 +20,9 @@ export class AccListComponent implements OnInit {
   // ]
 
   accInfo: AccInfo[];
-  editMode = false;
+  public detailsMode: boolean = false;
+  public type: string;
+  public data: any;
   subscription: Subscription;
 
   constructor(private route: ActivatedRoute, private router: Router, private accInfoService: AccInfoService) { }
@@ -37,8 +39,21 @@ export class AccListComponent implements OnInit {
   }
 
   onNewAccount() {
-    this.editMode = true;
-    this.router.navigate(['new'], { relativeTo: this.route });
+    // this.detailsMode = true;  
+    // this.router.navigate(['new'], { relativeTo: this.route });
+    this.detailsMode = false;
+    this.type = 'CREATE';
+    this.data = {};
+    this.detailsMode = true;
+
+  }
+  public onEditAccount(index: number): void {
+    this.detailsMode = false;
+    this.type = 'UPDATE';
+    console.log(this.accInfo, index);
+
+    this.data = this.accInfo[index];
+    this.detailsMode = true;
   }
 
 

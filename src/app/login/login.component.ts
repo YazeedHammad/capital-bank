@@ -30,18 +30,33 @@ export class LoginComponent implements OnInit {
   };
 
 
-  login() {
-    console.log(this.loginForm.value);
-    this.isSubmitted = true;
-    if (this.loginForm.invalid) {
-      return;
-    }
-    if (!this.authService.isLoggedIn()) {
-      this.isValid = false;
-    }
+  login(form) {
+    // console.log(this.loginForm.value);
+    // this.isSubmitted = true;
+    // if (this.loginForm.invalid) {
+    //   return;
+    // }
+    // if (!this.authService.isLoggedIn()) {
+    //   this.isValid = false;
+    // }
 
-    this.authService.login(this.loginForm.value);
-    this.router.navigateByUrl('/home');
+    // this.authService.login(this.loginForm.value);
+    // this.router.navigateByUrl('/home');
+
+    if (form.valid) {
+      const isValid = this.authService.login(form.value);
+      console.log(isValid);
+
+      if (isValid) {
+        this.router.navigateByUrl('/home');
+      } else {
+        this.isValid = false;
+      }
+
+    } else {
+      this.isValid = false;
+
+    }
   }
 
 

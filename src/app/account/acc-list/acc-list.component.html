@@ -1,8 +1,9 @@
 <div class="container">
     <app-nav></app-nav>
-    <app-acc-card *ngFor="let accCard of accInfo; let i = index" [accInfo]="accCard" [index]="i"></app-acc-card>
+    <app-acc-card (openEditMode)="onEditAccount(i)" *ngFor="let accCard of accInfo; let i = index" [accInfo]="accCard"
+        [index]="i"></app-acc-card>
     <button class="new" (click)="onNewAccount()">New Account</button>
-    <div class="edit" *ngIf="editMode">
-        <app-acc-edit></app-acc-edit>
+    <div class="edit" *ngIf="detailsMode">
+        <app-acc-edit [type]="type" [data]='data'></app-acc-edit>
     </div>
 </div>

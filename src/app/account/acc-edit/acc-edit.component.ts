@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AccListComponent } from '../acc-list/acc-list.component';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -14,6 +14,8 @@ export class AccEditComponent implements OnInit {
   infoForm: FormGroup;
   editMode = true;
   isSubmitted = false;
+  @Input() type;
+  @Input() data;
 
   constructor(private accList: AccListComponent,
     private route: ActivatedRoute,
@@ -22,25 +24,26 @@ export class AccEditComponent implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    // if (this.type === 'CREATE') {
 
-    this.infoForm = this.formBuilder.group({
-      accNumber: ['', Validators.required],
-      nickName: ['', Validators.required]
-    });
+    // } else {
 
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.id = +params['id'];
-          this.editMode = params['id'] != null;
-          this.initForm()
-        }
-      )
+    // }
+
+
+    // this.route.params
+    //   .subscribe(
+    //     (params: Params) => {
+    //       this.id = +params['id'];
+    //       this.editMode = params['id'] != null;
+    //       this.initForm()
+    //     }
+    //   )
+    console.log(this.data);
+
   }
 
-  get formControls() {
-    return this.infoForm.controls;
-  };
+
 
   onSubmit() {
     this.isSubmitted = true;

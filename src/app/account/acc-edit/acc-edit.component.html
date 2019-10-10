@@ -1,11 +1,12 @@
 <div class="container">
-  <h1>{{ editMode ? 'Update' : 'Add' }} Account</h1>
+  <h1>{{ type ==='UPDATE' ? 'Update' : 'Add' }} Account</h1>
   <div>
-    <form [formGroup]="infoForm" (ngSubmit)="onSubmit()">
+    <form #form='ngForm' (ngSubmit)="onSubmit()">
 
       <div class="edit-input form-group">
         <p [ngClass]="{ 'has-error': isSubmitted && formControls.accNumber.errors }">
-          <input type="text" placeholder="Account Number" class="form-control" formControlName="accNumber">
+          <input type="text" placeholder="Account Number" class="form-control" name="accNumber"
+            [(ngModel)]="data.accNumber">
         </p>
       </div>
       <div *ngIf="isSubmitted && formControls.accNumber.errors" class="help-block">
@@ -14,7 +15,8 @@
 
       <div class="edit-input form-group">
         <p [ngClass]="{ 'has-error': isSubmitted && formControls.nickName.errors }">
-          <input type="text" placeholder="Account Nickname" class="form-control" formControlName="nickName">
+          <input type="text" placeholder="Account Nickname" class="form-control" name="nickname"
+            [(ngModel)]="data.nickName">
         </p>
       </div>
       <div *ngIf="isSubmitted && formControls.nickName.errors" class="help-block">
@@ -23,7 +25,8 @@
 
       <div class="edit-input form-group">
         <p [ngClass]="{ 'has-error': isSubmitted && formControls.accBalance.errors }">
-          <input type="text" placeholder="Account Balance" class="form-control" formControlName="accBalance">
+          <input type="text" placeholder="Account Balance" class="form-control" name="balnace"
+            [(ngModel)]="data.accBalance">
         </p>
       </div>
       <div *ngIf="isSubmitted && formControls.accBalance.errors" class="help-block">
@@ -32,7 +35,8 @@
 
       <div class="edit-input form-group">
         <p [ngClass]="{ 'has-error': isSubmitted && formControls.balanceCurrency.errors }">
-          <input type="text" placeholder="Balance Currency" class="form-control" formControlName="balanceCurrency">
+          <input type="text" placeholder="Balance Currency" class="form-control" name="Currency"
+            [(ngModel)]="data.balanceCurrency">
         </p>
       </div>
 

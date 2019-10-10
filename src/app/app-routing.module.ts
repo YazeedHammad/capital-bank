@@ -16,7 +16,7 @@ const routes: Routes = [
     path: 'accounts', component: AccListComponent, canActivate: [AuthGuard], children: [
       { path: 'new', component: AccNewComponent },
       { path: ':id', component: AccListComponent },
-      { path: 'edit', component: AccEditComponent },
+      { path: ':id/edit', component: AccEditComponent },
     ]
   },
   { path: 'cards', component: AccCardComponent }

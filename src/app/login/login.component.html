@@ -4,7 +4,7 @@
     <h1 class="login">Capital Bank</h1>
   </div>
   <div class="log-form">
-    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <form class="login-form" #form="ngForm" [formGroup]="loginForm" (ngSubmit)="login(form)">
 
       <div class="username">
         <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">

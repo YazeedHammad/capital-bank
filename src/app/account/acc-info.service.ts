@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 export class AccInfoService {
 
   InfoChanged = new Subject<AccInfo[]>();
-  formType = ''
+
 
 
   accInfo: AccInfo[] = [
