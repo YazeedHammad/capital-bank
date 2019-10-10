@@ -5,11 +5,11 @@
       <thead></thead>
       <tbody>
         <tr>
-          <td *ngFor="let forecast of weather">
-            <h5 *ngFor="let day of days">{{day}}</h5>
+          <td *ngFor="let forecast of weather;let i = index;">
+            <h5>{{forecast.weekday}}</h5>
             <img [src]="forecast.iconLink" />
             <p>{{ forecast.highTemperature }}C</p>
-            <p class="p-Time">{{ forecast.utcTime }}</p>
+            <p class="p-Time">{{ forecast.utcTime| date }}</p>
           </td>
         </tr>
       </tbody>

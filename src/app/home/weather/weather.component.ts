@@ -9,13 +9,15 @@ import { map } from 'rxjs/operators';
 })
 export class WeatherComponent implements OnInit {
 
-  public days = ['Sunday',
+  public days = [
+    'Sunday',
     'Monday',
     'Tuesday',
     'Wednesday',
     'Thursday',
     'Friday',
-    'Saturday']
+    'Saturday'
+  ]
 
   private appId: string;
   private appCode: string;
@@ -37,6 +39,8 @@ export class WeatherComponent implements OnInit {
     } else {
       console.error("The browser does not support geolocation...");
     }
+
+
   }
 
   public getWeather(coordinates: any) {
@@ -44,6 +48,8 @@ export class WeatherComponent implements OnInit {
       .pipe(map(result => (<any>result).dailyForecasts.forecastLocation))
       .subscribe(result => {
         this.weather = result.forecast;
+        console.log(this.weather);
+
       }, error => {
         console.error(error);
       });
