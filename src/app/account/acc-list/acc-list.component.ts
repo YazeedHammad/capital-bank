@@ -3,6 +3,8 @@ import { AccInfo } from '../acc-info.model';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { AccInfoService } from '../acc-info.service';
 import { Subscription } from 'rxjs';
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
+
 
 
 
@@ -25,7 +27,8 @@ export class AccListComponent implements OnInit {
   public data: any;
   subscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private router: Router, private accInfoService: AccInfoService) { }
+  constructor(private route: ActivatedRoute, private router: Router,
+    private accInfoService: AccInfoService, private _scrollToService: ScrollToService) { }
 
 
   ngOnInit() {
@@ -38,6 +41,14 @@ export class AccListComponent implements OnInit {
     this.accInfo = this.accInfoService.getInfos()
   }
 
+  scrollToEdit() {
+    const config: ScrollToConfigOptions = {
+      target: 'editComponent'
+    };
+
+    this._scrollToService.scrollTo(config);
+  }
+
   onNewAccount() {
     // this.detailsMode = true;  
     // this.router.navigate(['new'], { relativeTo: this.route });
@@ -46,7 +57,10 @@ export class AccListComponent implements OnInit {
     this.data = {};
     this.detailsMode = true;
 
+    this.scrollToEdit()
   }
+
+
   public onEditAccount(index: number): void {
     this.detailsMode = false;
     this.type = 'UPDATE';
@@ -54,6 +68,8 @@ export class AccListComponent implements OnInit {
 
     this.data = this.accInfo[index];
     this.detailsMode = true;
+
+    this.scrollToEdit()
   }
 
 

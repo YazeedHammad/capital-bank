@@ -17,7 +17,27 @@
       </div>
       <div><button (click)="onEditInfo()" class="edit-acc">Edit</button></div>
 
-      <div><button class="delete-acc">Delete</button></div>
+      <div><button class="delete-acc" (click)="onDeleteAccount()">Delete</button></div>
+
+      <div>
+        send <input type="number" id="amount" name="amount" [(ngModel)]="amount" />
+        <select id="currency" required [(ngModel)]="currency1" name="currency1">
+          <option selected>USD</option>
+          <option>EUR</option>
+          <option>JOD</option>
+          <option>GBP</option>
+          <option>CAD</option>
+        </select>
+        to
+        <select id="selectedID">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <button (click)="onTrans()">Make Transaction</button>
+      </div>
     </div>
   </div>
 </div>

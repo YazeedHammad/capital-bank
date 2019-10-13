@@ -13,8 +13,8 @@ export class AccInfoService {
 
 
   accInfo: AccInfo[] = [
-    new AccInfo(1, 2060860, 'Yazeed', 186.91, '$'),
-    new AccInfo(2, 2045698, 'Saif', 45.89, '$'),
+    new AccInfo(1, 2060860, 'Yazeed', 186.91, 'USD'),
+    new AccInfo(2, 2045698, 'Saif', 45.89, 'EUR'),
     new AccInfo(3, 2063254, 'Saleh', 554.32, 'JOD'),
   ]
 

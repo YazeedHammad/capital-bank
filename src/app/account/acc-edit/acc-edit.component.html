@@ -1,7 +1,7 @@
 <div class="container">
   <h1>{{ type ==='UPDATE' ? 'Update' : 'Add' }} Account</h1>
   <div>
-    <form #form='ngForm' (ngSubmit)="onSubmit()">
+    <form #form='ngForm' (ngSubmit)="onSubmit()" [formGroup]="infoForm">
 
       <div class="edit-input form-group">
         <p [ngClass]="{ 'has-error': isSubmitted && formControls.accNumber.errors }">

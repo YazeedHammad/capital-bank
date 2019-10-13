@@ -11,10 +11,10 @@ import { AccNewComponent } from './account/acc-new/acc-new.component';
 import { AccCardComponent } from './account/acc-card/acc-card.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { HttpClientModule } from '@angular/common/http';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { WeatherComponent } from './home/weather/weather.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 
 
@@ -38,7 +38,8 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     ReactiveFormsModule,
     CarouselModule.forRoot(),
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    ScrollToModule.forRoot()
 
   ],
   providers: [],

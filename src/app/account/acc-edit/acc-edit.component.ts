@@ -57,6 +57,7 @@ export class AccEditComponent implements OnInit {
       this.accInfoService.addAccount(this.infoForm.value)
     }
     console.log(this.infoForm.value);
+    this.onCancel();
 
 
   }
